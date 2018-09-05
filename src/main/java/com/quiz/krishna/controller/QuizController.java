@@ -31,7 +31,7 @@ public class QuizController {
     @GetMapping(value="/forTag")
     @ResponseBody
     public List<Quiz> getQuestionsForTag(@RequestParam("tag") String tag) {
-        return quizRep.findQuizByTags(tag);
+        return quizRep.findQuizByTagsContaining(tag);
     }
 
 }

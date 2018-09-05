@@ -9,6 +9,8 @@ public interface QuizRepository extends CrudRepository<Quiz, Long> {
 
     List<Quiz> findQuizByCategory(String category);
     List<Quiz> findQuizByCategoryAndAndLevel(String Category, Integer level);
-    List<Quiz> findQuizByTags(String tag);
+    List<Quiz> findQuizByTagsContaining(String tag);
+
+    List<Quiz> findQuizByQuestionContaining(String searchStr);
 }
 
