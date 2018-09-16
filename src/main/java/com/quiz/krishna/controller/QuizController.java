@@ -21,6 +21,7 @@ public class QuizController {
         return "Jai Shri Krishna";
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping(value="/forCategoryAndLevel")
     @ResponseBody
     public List<Quiz> getQuestionsForCategoryAndLevel(@RequestParam("category") String category,
@@ -28,6 +29,7 @@ public class QuizController {
         return quizRep.findQuizByCategoryAndAndLevel(category, level);
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping(value="/forTag")
     @ResponseBody
     public List<Quiz> getQuestionsForTag(@RequestParam("tag") String tag) {
