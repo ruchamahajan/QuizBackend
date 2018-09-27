@@ -9,7 +9,7 @@ import java.util.Objects;
 @NamedQuery(query = "select q from Quiz q", name="query_get_all_questions")
 public class Quiz implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(name="question", nullable = false)

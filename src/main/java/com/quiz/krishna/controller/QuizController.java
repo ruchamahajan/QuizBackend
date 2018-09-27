@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
+import javax.xml.ws.Response;
 import java.util.List;
 
 @RequestMapping("/questions")
@@ -34,6 +35,13 @@ public class QuizController {
     @ResponseBody
     public List<Quiz> getQuestionsForTag(@RequestParam("tag") String tag) {
         return quizRep.findQuizByTagsContaining(tag);
+    }
+
+    @CrossOrigin(origins = "http://localhost:4200")
+    @PostMapping(value="/add")
+    @ResponseBody
+    public Quiz addQuestion(@RequestBody Quiz q) {
+        return quizRep.save(q);
     }
 
 }
