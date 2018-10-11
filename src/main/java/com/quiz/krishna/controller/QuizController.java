@@ -58,8 +58,7 @@ public class QuizController {
     @DeleteMapping(value="/deletebyid")
     @ResponseBody
     public void deleteQuestionById(@RequestParam("id") Long id) {
-        Optional<Quiz> q = quizRep.findById(id);
-        q.ifPresent( quiz-> quizRep.delete(quiz) );
+         quizRep.removeById(id);
     }
 
 }
