@@ -25,12 +25,25 @@ public class QuizController {
     }
 
     @CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping(value="/questionbycategory")
+    @ResponseBody
+    public Iterable<Quiz> getQuestionsByCategory(@RequestParam("category") String category) {
+        if(category.equals("all")) {
+            return quizRep.findAll();
+        } else {
+            return quizRep.findQuizByCategory(category);
+        }
+    }
+
+
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping(value="/forCategoryAndLevel")
     @ResponseBody
     public Iterable<Quiz> getQuestionsForCategoryAndLevel(@RequestParam("category") String category,
-                                                      @RequestParam("level") Integer level) {
+                                                          @RequestParam("level") Integer level) {
         return quizRep.findAll();
     }
+
 
     @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping(value="/forTag")
@@ -59,6 +72,13 @@ public class QuizController {
     @ResponseBody
     public void deleteQuestionById(@RequestParam("id") Long id) {
          quizRep.removeById(id);
+    }
+
+    @CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping(value="/questionbyid")
+    @ResponseBody
+    public Optional<Quiz> getQuestionById(@RequestParam("id") Long id) {
+        return quizRep.findById(id);
     }
 
 }
