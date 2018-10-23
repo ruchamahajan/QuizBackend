@@ -19,6 +19,11 @@ group = 'com.quiz'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
 
+bootJar {
+    baseName = 'gs-messaging-rabbitmq'
+    version =  '0.1.0'
+}
+
 repositories {
     mavenCentral()
 }
@@ -32,6 +37,7 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-jersey')
     compile('org.springframework.boot:spring-boot-starter-web')
     compile('org.springframework.boot:spring-boot-starter-web-services')
+    compile("org.springframework.boot:spring-boot-starter-amqp")
     runtime('org.springframework.boot:spring-boot-devtools')
     runtime('mysql:mysql-connector-java')
     testCompile('org.springframework.boot:spring-boot-starter-test')
