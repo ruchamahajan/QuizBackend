@@ -21,9 +21,9 @@ import org.springframework.context.annotation.ComponentScan;
 @SpringBootApplication
 public class KrishnaApplication {
 
-    public static final String topicExchangeName = "spring-boot-exchange";
+    public static final String topicExchangeName = "classroom-exchange";
 
-    static final String queueName = "spring-boot";
+    static final String queueName = "announcement";
 
     @Bean
     Queue queue() {
@@ -37,7 +37,7 @@ public class KrishnaApplication {
 
     @Bean
     Binding binding(Queue queue, TopicExchange exchange) {
-        return BindingBuilder.bind(queue).to(exchange).with("foo.bar.#");
+        return BindingBuilder.bind(queue).to(exchange).with("grade.10.#");
     }
 
     @Bean
