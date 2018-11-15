@@ -5,10 +5,10 @@ import com.quiz.krishna.KrishnaApplication;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-
+/*
 @Component
 public class Runner implements CommandLineRunner {
-
+/*
     private final RabbitTemplate rabbitTemplate;
     private final StudentMessageReceiver receiver;
 
@@ -25,3 +25,4 @@ public class Runner implements CommandLineRunner {
     }
 
 }
+*/

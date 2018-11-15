@@ -13,10 +13,10 @@ import org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer;
 import org.springframework.amqp.rabbit.listener.adapter.MessageListenerAdapter;
 import org.springframework.context.annotation.ComponentScan;
 
-@ComponentScan({"com.quiz.messageq"})
+//@ComponentScan({"com.quiz.messageq"})
 @SpringBootApplication
 public class KrishnaApplication {
-
+/*
     public static final String topicExchangeName = "classroom-exchange";
     public int x = new Integer(100);
 
@@ -51,7 +51,7 @@ public class KrishnaApplication {
     @Bean
     MessageListenerAdapter listenerAdapter(StudentMessageReceiver receiver) {
         return new MessageListenerAdapter(receiver, "receiveMessage");
-    }
+    } */
 
 
     public static void main(String[] args) {
