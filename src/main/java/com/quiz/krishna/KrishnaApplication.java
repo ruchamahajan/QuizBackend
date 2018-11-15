@@ -1,10 +1,9 @@
 package com.quiz.krishna;
 
-import com.quiz.messageq.Receiver;
+import com.quiz.messageq.StudentMessageReceiver;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import com.quiz.messageq.Receiver;
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;
 import org.springframework.amqp.core.Queue;
@@ -12,9 +11,6 @@ import org.springframework.amqp.core.TopicExchange;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer;
 import org.springframework.amqp.rabbit.listener.adapter.MessageListenerAdapter;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 
 @ComponentScan({"com.quiz.messageq"})
@@ -22,6 +18,8 @@ import org.springframework.context.annotation.ComponentScan;
 public class KrishnaApplication {
 
     public static final String topicExchangeName = "classroom-exchange";
+    public int x = new Integer(100);
+
 
     static final String queueName = "announcement";
 
@@ -51,7 +49,7 @@ public class KrishnaApplication {
     }
 
     @Bean
-    MessageListenerAdapter listenerAdapter(Receiver receiver) {
+    MessageListenerAdapter listenerAdapter(StudentMessageReceiver receiver) {
         return new MessageListenerAdapter(receiver, "receiveMessage");
     }
 
@@ -60,7 +58,5 @@ public class KrishnaApplication {
 
         SpringApplication.run(KrishnaApplication.class, args);
     }
-
-
 
 }
